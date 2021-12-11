@@ -1,3 +1,8 @@
+hu/nye/rft/service/SubjectController.class
+hu/nye/rft/service/PageController.class
+hu/nye/rft/service/UserService.class
+hu/nye/rft/repository/SubjectRepository.class
 hu/nye/rft/model/Subject.class
-hu/nye/rft/Main.class
 hu/nye/rft/model/User.class
+hu/nye/rft/repository/UserRepository.class
+hu/nye/rft/Main.class

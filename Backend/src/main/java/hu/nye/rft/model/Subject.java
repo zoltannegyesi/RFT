@@ -1,7 +1,5 @@
 package hu.nye.rft.model;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.*;
 
 import lombok.Getter;
@@ -14,10 +12,18 @@ import lombok.Setter;
 @Entity
 public class Subject {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    private String code;
     private Long id;
     private String name;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
+    private String classRoom;
+    private String time;
+    private Boolean took;
+
+    public Subject(String name, String code, String classRoom, String time, Boolean took) {
+        this.name = name;
+        this.code = code;
+        this.classRoom = classRoom;
+        this.time = time;
+        this.took = took;
+    }
 }
