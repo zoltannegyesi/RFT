@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <title>Tárgy hozzáadás</title>
+	</head>
+	<body>
+    <a href="http://localhost:8080/login" id="logout">Kijelentkezés</a>
+		<div id="otherpages" class="border-radius">
+		  <h1 style="text-align:center">Tantárgy hozzáadása</h1>
+            
+            <form action="#" method="POST" th:object="${subject}" th:action="@{/addsubjects}">
+                    
+                <input id="name" placeholder="Tantárgy név" required type="text" th:field="*{name}"/><br>
+                <input id="code" placeholder="Tantárgy kódja" required type="text" th:field="*{code}"/><br>
+                <input id="classRoom" placeholder="Tanterem" required type="text" th:field="*{classRoom}"/><br>
+                <input id="time" placeholder="Időpont" required type="text" th:field="*{time}"/><br>
+                    <input type="submit" value="Tantárgy hozzáadása">
+            </form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+        <link rel="stylesheet" href="index.css">
+        <title>Bejelentkezés</title>
+	</head>
+	<body>
+		<div id="loginpage" class="border-radius">
+		<h1>Bejelentkezés</h1>
+            <form id="go_to" onsubmit="makeUrl()">
+                <input id="userName" placeholder="Név" required type="text"/><br>
+                <input type="radio" id="student" name="loginas" value="student" checked>
+                    <label>Hallgató</label>
+                <input type="radio" id="teacher" name="loginas" value="teacher"> 
+                    <label>Tanár</label><br>
+                <input type="submit" value="Bejelentkezés">
+            </form>
+		</div>
+	</body>
+    <script>
+        function makeUrl() {
+            var go_to = document.getElementById('go_to');
+            go_to.action = "http://localhost:8080/"+getSite()+"/" + document.getElementById("userName").value
+        }
+        function getSite() {
+            let result;
+            
+            if(document.getElementById('student').checked) {
+                result = "takesubject"
+            } else {
+                result = "addsubjects"
+            }
+            return result;
+        }
+    </script>
+</html>
