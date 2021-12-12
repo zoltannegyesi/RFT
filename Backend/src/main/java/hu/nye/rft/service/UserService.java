@@ -1,9 +1,6 @@
 package hu.nye.rft.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 import hu.nye.rft.model.Subject;
 import hu.nye.rft.model.User;
@@ -14,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserService {
+
 
     private final SubjectRepository subjectRepository;
     private final UserRepository userRepository;
@@ -28,43 +26,42 @@ public class UserService {
         return subjectRepository.findByTook(false);
     }
 
-    public void createUser(String userName) {
+    public User createUser(String userName) {
         User user = new User();
         user.setName(userName);
         this.userRepository.save(user);
+        return user;
     }
 
-    public List<Subject> findTakenSubjects(String userName) {
+    public List<Subject> findTakenSubjects() {
         return this.subjectRepository.findByTook(true);
-    }
-
-    public User findUserByName(String name) {
-        return this.userRepository.findByName(name).get(0);
     }
 
     public boolean testCode(String subjectCode) {
         return this.subjectRepository.findAll().stream().noneMatch(subject -> subject.getCode().equals(subjectCode));
     }
 
-    public void takeSubject(String subjectCode) {
+    public Subject takeSubject(String subjectCode) {
         if (!testCode(subjectCode)) {
             Subject subject = this.subjectRepository.findByCode(subjectCode);
             subject.setTook(true);
             this.subjectRepository.save(subject);
+            return subject;
         } else {
             System.out.println("There is no Subject with this code!");
+            return null;
         }
-
     }
 
-    public void saveSubject(Subject subject) {
+    public boolean saveSubject(Subject subject) {
         subject.setTook(false);
         this.subjectRepository.save(subject);
+        return subject.getTook();
     }
 
-    public void createSubjects() {
-        this.subjectRepository.save(new Subject("Rendszerközeli Programozás", "BPI2119", "Discord", "19:00", false));
-        this.subjectRepository.save(new Subject("RFT", "BPI2118", "Teams", "11:00", false));
-        this.subjectRepository.save(new Subject("Analízis", "BPI1111", "D9", "15:00", false));
+    public void createSubjects(Subject subject1, Subject subject2, Subject subject3) {
+        this.subjectRepository.save(subject1);
+        this.subjectRepository.save(subject2);
+        this.subjectRepository.save(subject3);
     }
 }

@@ -103,14 +103,16 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
             </plugin>
-        <!--
+<!-- A unit test-es branchnél be van kapcsolva
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.2</version>
                 <configuration>
                     <excludes>
-                        <exclude>hu/nye/progtech/rft/Main.*</exclude>
+                        <exclude>hu/nye/rft/Main.*</exclude>
+                        <exclude>hu/nye/rft/model/*</exclude>
+                        <exclude>hu/nye/rft/repository/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -148,12 +150,12 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.9.1</version>
             </plugin>
-            -->
         </plugins>
     </build>
 
