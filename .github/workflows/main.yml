@@ -15,9 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Run Spring application
-        working-directory: ./Backend
-        run: mvn spring-boot:run
           
       - name: Run mvn clean install
         working-directory: ./Backend
