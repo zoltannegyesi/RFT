@@ -31,4 +31,5 @@ jobs:
           echo Building project
           
       - name: Run mvn clean install
+        working-directory: ./Backend
         run: mvn clean install
