@@ -22,5 +22,7 @@ public class User {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String name;
+    @OneToMany(mappedBy = "user")
+    private List<Subject> subjects = new ArrayList<>();
 
 }
