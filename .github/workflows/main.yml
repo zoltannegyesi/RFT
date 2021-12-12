@@ -2,9 +2,9 @@ name: Build project
 
 on:
   push:
-    branches: [ UnitTest ]
+    branches: [ Main ]
   pull_request:
-    branches: [ UnitTest ]
+    branches: [ Main ]
 
   workflow_dispatch:
 
