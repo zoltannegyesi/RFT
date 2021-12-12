@@ -18,6 +18,3 @@ jobs:
       - name: Run mvn clean install
         working-directory: ./Backend
         run: mvn clean install
-        
-      - name: echo
-        run: echo The API test throws error, because the spring boot needs mysql server and it does not run on the virtual machine.
