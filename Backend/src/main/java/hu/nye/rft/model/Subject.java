@@ -13,7 +13,6 @@ import lombok.Setter;
 public class Subject {
     @Id
     private String code;
-    private Long id;
     private String name;
     private String classRoom;
     private String time;
